@@ -12,169 +12,134 @@ http://emaizmi.github.io/
 emaizmi's blog
 </description>
 <lastBuildDate>
-Fri, 02 Feb 2018 16:42:41 +0900
+Thu, 22 Mar 2018 14:19:16 +0900
 </lastBuildDate>
 <generator>
 clj-rss
 </generator>
 <item>
 <guid>
-http://emaizmi.github.io/posts/2018-02-02-firefox-addon/
+http://emaizmi.github.io/posts/2018-03-08-asciidoc-writing/
 </guid>
 <link>
-http://emaizmi.github.io/posts/2018-02-02-firefox-addon/
+http://emaizmi.github.io/posts/2018-03-08-asciidoc-writing/
 </link>
 <title>
-FireFox
+AtomでAsciiDocのライブプレビュー環境を整える
 </title>
 <description>
-
-</description>
-<pubDate>
-Fri, 02 Feb 2018 00:00:00 +0900
-</pubDate>
-</item>
-<item>
-<guid>
-http://emaizmi.github.io/posts/2014-10-10-adoc-post/
-</guid>
-<link>
-http://emaizmi.github.io/posts/2014-10-10-adoc-post/
-</link>
-<title>
-Adoc Post
-</title>
-<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;AtomでAsciiDocのライブプレビュー&amp;amp;PDF化ができる執筆環境を整えたのでメモ書き。&lt;br&gt;
+本当はEmacsを使いたかったが，ライブプレビューまでは難しそうだったので断念。AsciiDocFXというものもあるのだが，使い勝手がいまひとつだった。結局，Atomにプラグインを入れて使うことにした。&lt;/p&gt;
+&lt;/div&gt;
 &lt;div class=&quot;sect1&quot;&gt;
-&lt;h2 id=&quot;_example_asciidoc_post&quot;&gt;Example Asciidoc Post&lt;/h2&gt;
+&lt;h2 id=&quot;_atomのインストール&quot;&gt;Atomのインストール&lt;/h2&gt;
 &lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;This is an example asciidoc post.&lt;/p&gt;
+&lt;p&gt;Atomを &lt;a href=&quot;https://atom.io&quot; class=&quot;bare&quot;&gt;https://atom.io&lt;/a&gt; からダウンロードする。Debianパッケージをダウンロードした。Debian系以外の方は環境に合わせて適宜……。
+ダウンロード完了後 &quot;~/Download&quot; ディレクトリにて以下のコマンドを実行し，インストールする。&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;$ dpkg -i atom_amd64.deb&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_asciidoc用プラグインのインストール&quot;&gt;AsciiDoc用プラグインのインストール&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;You can use a manually placed table of contents by setting &lt;code&gt;:toc false&lt;/code&gt; in the front matter, but use &lt;code&gt;:toc: macro&lt;/code&gt; at the top of the post, and &lt;code&gt;toc::[]&lt;/code&gt; where the table of contents is supposed to be, like here:&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&quot;toc&quot; class=&quot;toc&quot;&gt;
-&lt;div id=&quot;toctitle&quot; class=&quot;title&quot;&gt;Table of Contents&lt;/div&gt;
-&lt;ul class=&quot;sectlevel1&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#_example_asciidoc_post&quot;&gt;Example Asciidoc Post&lt;/a&gt;
-&lt;ul class=&quot;sectlevel2&quot;&gt;
-&lt;li&gt;&lt;a href=&quot;#_section_1&quot;&gt;Section 1&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;#_section_2&quot;&gt;Section 2&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_section_1&quot;&gt;Section 1&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Heading&lt;/div&gt;
-&lt;p&gt;With some text and maybe even a bulleted list:&lt;/p&gt;
+&lt;p&gt;　AtomにAsciiDocのプラグインをインストールする。インストールするものは以下の通り。（すべてがライブプレビューに必要な訳ではないが,まとめていれてしまう）&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;ulist&quot;&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;Thing 1&lt;/p&gt;
+&lt;p&gt;asciiDoc-preview&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Thing 2&lt;/p&gt;
+&lt;p&gt;asciidoc-assistant&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;asciidoc-image-helper&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;autocomplete-asciidoc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;language-asciidoc&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Or how about some &lt;strong&gt;bold&lt;/strong&gt; or &lt;em&gt;italicized&lt;/em&gt; text?&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;sect2&quot;&gt;
-&lt;h3 id=&quot;_section_2&quot;&gt;Section 2&lt;/h3&gt;
-&lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Will a code snippet work?&lt;/p&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;bash&lt;/div&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;$ echo &quot;foo&quot;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;listingblock&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;clojure&lt;/div&gt;
-&lt;div class=&quot;content&quot;&gt;
-&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;(defn echo [s]
-(println s))&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&quot;admonitionblock note&quot;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&quot;icon&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Note&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class=&quot;content&quot;&gt;
-An admonition paragraph draws the reader&amp;#8217;s attention to
-auxiliary information.
-Its purpose is determined by the label
-at the beginning of the paragraph.
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
+&lt;p&gt;&lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;File&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Preferences&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;menuitem&quot;&gt;Install&lt;/b&gt;&lt;/span&gt;を選択し，検索ボックスにAsciiDocと入れれば出てくる。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;Here are the other built-in admonition types:&lt;/p&gt;
+&lt;p&gt;以上のプラグインをインストールし，拡張子が &lt;code&gt;.adoc .asc&lt;/code&gt; などのファイルを開いているときに &lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;A&lt;/kbd&gt;&lt;/span&gt; を押しプレビューウィンドウを開く。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;admonitionblock tip&quot;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&quot;icon&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Tip&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class=&quot;content&quot;&gt;
-Pro tip&amp;#8230;&amp;#8203;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
 &lt;/div&gt;
-&lt;div class=&quot;admonitionblock important&quot;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&quot;icon&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Important&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class=&quot;content&quot;&gt;
-Don&amp;#8217;t forget&amp;#8230;&amp;#8203;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
 &lt;/div&gt;
-&lt;div class=&quot;admonitionblock warning&quot;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&quot;icon&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Warning&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class=&quot;content&quot;&gt;
-Watch out for&amp;#8230;&amp;#8203;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_asciidoctor_pdfのインストール&quot;&gt;Asciidoctor PDFのインストール&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;これでAsciiDocのライブプレビューまではできるが，プレビューウィンドウで右クリックしたときにでてくる &quot;Export As PDF&quot;は実行できない。PDF化のためには以下のようにする。&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class=&quot;admonitionblock caution&quot;&gt;
-&lt;table&gt;
-&lt;tr&gt;
-&lt;td class=&quot;icon&quot;&gt;
-&lt;div class=&quot;title&quot;&gt;Caution&lt;/div&gt;
-&lt;/td&gt;
-&lt;td class=&quot;content&quot;&gt;
-Ensure that&amp;#8230;&amp;#8203;
-&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/table&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;まず，&lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;File&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Preferences&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Packages&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;asciidoc-preview&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;menuitem&quot;&gt;Export As PDF [experimental&lt;/b&gt;&lt;/span&gt; ]をクリックし &quot;Enable PDF export using Asciidoctor PDF.&quot;
+のチェックボックスにチェックを入れてAsciidoctor PDFを使ったPDF出力を有効にする。&lt;/p&gt;
 &lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;次はRubyをインストールする。Ruby1.9.3以上が必要（Ruby2.3.Xが推奨）となる。以下のコマンドでインストールできるはずだ。Rubyには明るくないので別の方法があるかもしれない……。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;$ sudo add-apt-repository -y ppa:brightbox/ruby-ng
+$ sudo apt-get update
+$ sudo apt-get -y install ruby2.３&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;インストールできたら次のコマンドでAsciidoctor PDFをインストールする。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;$ gem install asciidoctor-pdf --pre&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;これでプレビューウィンドウ上で右クリックし，&quot;Export as PDF&quot; を選択すればPDFファイルに出力されるはずだ。&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>
 <pubDate>
-Fri, 10 Oct 2014 00:00:00 +0900
+Thu, 08 Mar 2018 00:00:00 +0900
+</pubDate>
+</item>
+<item>
+<guid>
+http://emaizmi.github.io/posts/2018-02-03-first-post/
+</guid>
+<link>
+http://emaizmi.github.io/posts/2018-02-03-first-post/
+</link>
+<title>
+ブログ開設
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;ブログを公開した。&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;いろいろなサービスがあるが，結局GitHub PagesとCryogenという静的サイトジェネレータで作ることにした。CyrogenではMarkdownも使えるが，AsciiDocを使ってブログを書こうと思う。理由は簡単で，Markdownでは表現力に限界があるように感じたからだ。その点AsciiDocは（自分の調べてみた感じでは）Markdownに勝る点が多いように感じた。O&amp;#8217;Reilly本の執筆にも使われているらしいから，ブログや個人的なメモをとる際には必要十分ではないかと思う。AsciiDocの記法にはまだ慣れていないが，使いながら覚えていきたい。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;内容としては，技術的な備忘録や思ったことなどを書くつもりだ。少しでも参考になれば幸いである。&lt;/p&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Sat, 03 Feb 2018 00:00:00 +0900
 </pubDate>
 </item>
 </channel>
