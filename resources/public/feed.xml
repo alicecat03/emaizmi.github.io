@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
+<channel>
+<atom:link href='http://emaizmi.github.io/' rel='self' type='application/rss+xml'/>
+<title>
+emaizmi.github.io
+</title>
+<link>
+http://emaizmi.github.io/
+</link>
+<description>
+emaizmi's blog
+</description>
+<lastBuildDate>
+Thu, 22 Mar 2018 14:19:16 +0900
+</lastBuildDate>
+<generator>
+clj-rss
+</generator>
+<item>
+<guid>
+http://emaizmi.github.io/posts/2018-03-08-asciidoc-writing/
+</guid>
+<link>
+http://emaizmi.github.io/posts/2018-03-08-asciidoc-writing/
+</link>
+<title>
+AtomでAsciiDocのライブプレビュー環境を整える
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;AtomでAsciiDocのライブプレビュー&amp;amp;PDF化ができる執筆環境を整えたのでメモ書き。&lt;br&gt;
+本当はEmacsを使いたかったが，ライブプレビューまでは難しそうだったので断念。AsciiDocFXというものもあるのだが，使い勝手がいまひとつだった。結局，Atomにプラグインを入れて使うことにした。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_atomのインストール&quot;&gt;Atomのインストール&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;Atomを &lt;a href=&quot;https://atom.io&quot; class=&quot;bare&quot;&gt;https://atom.io&lt;/a&gt; からダウンロードする。Debianパッケージをダウンロードした。Debian系以外の方は環境に合わせて適宜……。
+ダウンロード完了後 &quot;~/Download&quot; ディレクトリにて以下のコマンドを実行し，インストールする。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;$ dpkg -i atom_amd64.deb&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_asciidoc用プラグインのインストール&quot;&gt;AsciiDoc用プラグインのインストール&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;　AtomにAsciiDocのプラグインをインストールする。インストールするものは以下の通り。（すべてがライブプレビューに必要な訳ではないが,まとめていれてしまう）&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;ulist&quot;&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;asciiDoc-preview&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;asciidoc-assistant&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;asciidoc-image-helper&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;autocomplete-asciidoc&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;language-asciidoc&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;&lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;File&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Preferences&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;menuitem&quot;&gt;Install&lt;/b&gt;&lt;/span&gt;を選択し，検索ボックスにAsciiDocと入れれば出てくる。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;以上のプラグインをインストールし，拡張子が &lt;code&gt;.adoc .asc&lt;/code&gt; などのファイルを開いているときに &lt;span class=&quot;keyseq&quot;&gt;&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;A&lt;/kbd&gt;&lt;/span&gt; を押しプレビューウィンドウを開く。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;sect1&quot;&gt;
+&lt;h2 id=&quot;_asciidoctor_pdfのインストール&quot;&gt;Asciidoctor PDFのインストール&lt;/h2&gt;
+&lt;div class=&quot;sectionbody&quot;&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;これでAsciiDocのライブプレビューまではできるが，プレビューウィンドウで右クリックしたときにでてくる &quot;Export As PDF&quot;は実行できない。PDF化のためには以下のようにする。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;まず，&lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;File&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Preferences&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Packages&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;asciidoc-preview&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;menuitem&quot;&gt;Export As PDF [experimental&lt;/b&gt;&lt;/span&gt; ]をクリックし &quot;Enable PDF export using Asciidoctor PDF.&quot;
+のチェックボックスにチェックを入れてAsciidoctor PDFを使ったPDF出力を有効にする。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;次はRubyをインストールする。Ruby1.9.3以上が必要（Ruby2.3.Xが推奨）となる。以下のコマンドでインストールできるはずだ。Rubyには明るくないので別の方法があるかもしれない……。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;$ sudo add-apt-repository -y ppa:brightbox/ruby-ng
+$ sudo apt-get update
+$ sudo apt-get -y install ruby2.３&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;インストールできたら次のコマンドでAsciidoctor PDFをインストールする。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;literalblock&quot;&gt;
+&lt;div class=&quot;content&quot;&gt;
+&lt;pre&gt;$ gem install asciidoctor-pdf --pre&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;これでプレビューウィンドウ上で右クリックし，&quot;Export as PDF&quot; を選択すればPDFファイルに出力されるはずだ。&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Thu, 08 Mar 2018 00:00:00 +0900
+</pubDate>
+</item>
+<item>
+<guid>
+http://emaizmi.github.io/posts/2018-02-03-first-post/
+</guid>
+<link>
+http://emaizmi.github.io/posts/2018-02-03-first-post/
+</link>
+<title>
+ブログ開設
+</title>
+<description>
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;ブログを公開した。&lt;br&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;いろいろなサービスがあるが，結局GitHub PagesとCryogenという静的サイトジェネレータで作ることにした。CyrogenではMarkdownも使えるが，AsciiDocを使ってブログを書こうと思う。理由は簡単で，Markdownでは表現力に限界があるように感じたからだ。その点AsciiDocは（自分の調べてみた感じでは）Markdownに勝る点が多いように感じた。O&amp;#8217;Reilly本の執筆にも使われているらしいから，ブログや個人的なメモをとる際には必要十分ではないかと思う。AsciiDocの記法にはまだ慣れていないが，使いながら覚えていきたい。&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class=&quot;paragraph&quot;&gt;
+&lt;p&gt;内容としては，技術的な備忘録や思ったことなどを書くつもりだ。少しでも参考になれば幸いである。&lt;/p&gt;
+&lt;/div&gt;
+</description>
+<pubDate>
+Sat, 03 Feb 2018 00:00:00 +0900
+</pubDate>
+</item>
+</channel>
+</rss>
