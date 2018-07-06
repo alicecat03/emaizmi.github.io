@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja" xml:lang="ja">
+    <head>
+        <meta charset="utf-8"/>
+        <title>emaizmi.github.io: AtomでAsciiDocのライブプレビュー環境を整える</title>
+        <link rel="canonical" href="http://emaizmi.github.io/posts/2018-03-22-asciidoc-writing/">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Alegreya:400italic,700italic,400,700" rel="stylesheet"
+              type="text/css">
+        <link rel="preload" href="https://fonts.googleapis.com/earlyaccess/notosansjp.css" rel="stylesheet">
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+        <link rel="preload" href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link href="/css/screen.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body>
+        <div class=" cover-container d-flex h-100 p-3 mx-auto flex-column text-center">
+            <header>
+                <div class="masthead-brand mb-auto">
+                    <a class="masthead-brand-link" href="/">emaizmi.github.io</a>
+                </div>
+                <nav class="nav nav-masthead justify-content-center">
+                    <a class="nav-link active" href="/">Home</a>
+                    <a class="nav-link" href="/archives/">Archives</a>
+                    <a class="nav-link" href="/feed.xml">RSS</a>
+                    
+                </nav>
+            </header>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div id="content">
+                        
+<div id="post">
+    <div class="post-header">
+    <div id="post-meta" class="row">
+        <div class="col-lg-6">2018/03/22</div>
+        
+    </div>
+    <h1>AtomでAsciiDocのライブプレビュー環境を整える</h1>
+</div>
+<div>
+    
+    <div class="paragraph">
+<p>AtomでAsciiDocのライブプレビュー&amp;PDF化ができる執筆環境を整えたのでメモ書き。<br>
+本当はEmacsを使いたかったが，ライブプレビューまでは難しそうだったので断念。AsciiDocFXというものもあるのだが，使い勝手がいまひとつだった。結局，Atomにプラグインを入れて使うことにした。</p>
+</div>
+<div class="sect1">
+<h2 id="_atomのインストール">Atomのインストール</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Atomを <a href="https://atom.io" class="bare">https://atom.io</a> からダウンロードする。Debianパッケージをダウンロードした。Debian系以外の方は環境に合わせて適宜……。
+ダウンロード完了後 "~/Download" ディレクトリにて以下のコマンドを実行し，インストールする。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ dpkg -i atom_amd64.deb</pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asciidoc用プラグインのインストール">AsciiDoc用プラグインのインストール</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>　AtomにAsciiDocのプラグインをインストールする。インストールするものは以下の通り。（すべてがライブプレビューに必要な訳ではないが,まとめていれてしまう）</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>asciiDoc-preview</p>
+</li>
+<li>
+<p>asciidoc-assistant</p>
+</li>
+<li>
+<p>asciidoc-image-helper</p>
+</li>
+<li>
+<p>autocomplete-asciidoc</p>
+</li>
+<li>
+<p>language-asciidoc</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><span class="menuseq"><b class="menu">File</b>&#160;<b class="caret">&#8250;</b> <b class="submenu">Preferences</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Install</b></span>を選択し，検索ボックスにAsciiDocと入れれば出てくる。</p>
+</div>
+<div class="paragraph">
+<p>以上のプラグインをインストールし，拡張子が <code>.adoc .asc</code> などのファイルを開いているときに <span class="keyseq"><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd></span> を押しプレビューウィンドウを開く。</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_asciidoctor_pdfのインストール">Asciidoctor PDFのインストール</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>これでAsciiDocのライブプレビューまではできるが，プレビューウィンドウで右クリックしたときにでてくる "Export As PDF"は実行できない。PDF化のためには以下のようにする。</p>
+</div>
+<div class="paragraph">
+<p>まず，<span class="menuseq"><b class="menu">File</b>&#160;<b class="caret">&#8250;</b> <b class="submenu">Preferences</b>&#160;<b class="caret">&#8250;</b> <b class="submenu">Packages</b>&#160;<b class="caret">&#8250;</b> <b class="submenu">asciidoc-preview</b>&#160;<b class="caret">&#8250;</b> <b class="menuitem">Export As PDF [experimental</b></span> ]をクリックし "Enable PDF export using Asciidoctor PDF."
+のチェックボックスにチェックを入れてAsciidoctor PDFを使ったPDF出力を有効にする。</p>
+</div>
+<div class="paragraph">
+<p>次はRubyをインストールする。Ruby1.9.3以上が必要（Ruby2.3.Xが推奨）となる。以下のコマンドでインストールできるはずだ。Rubyには明るくないので別の方法があるかもしれない……。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ sudo add-apt-repository -y ppa:brightbox/ruby-ng
+$ sudo apt-get update
+$ sudo apt-get -y install ruby2.３</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>インストールできたら次のコマンドでAsciidoctor PDFをインストールする。</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>$ gem install asciidoctor-pdf --pre</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>これでプレビューウィンドウ上で右クリックし，"Export as PDF" を選択すればPDFファイルに出力されるはずだ。</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="post-tags">
+    <b>Tags: </b>
+    
+    <a href="/tags/asciidoc/">asciidoc</a>
+    
+</div>
+
+
+    <div id="prev-next">
+        
+        
+        <a class="right" href="/posts/2018-02-03-first-post/">ブログ開設 &raquo;</a>
+        
+    </div>
+
+    
+
+
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="blog-footer">
+            <p class="container">Except where otherwise noted, content on this site is licensed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative Commons Attribution-ShareAlike 4.0 International License.</a><br>
+                Powered by <a href="http://cryogenweb.org">Cryogen</a><br>
+                Copyright &copy; 2018 emaizmi</p>
+        </footer>
+        
+        
+    </body>
+</html>
