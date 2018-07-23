@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rss version='2.0' xmlns:atom='http://www.w3.org/2005/Atom'>
+<channel>
+<atom:link href='http://emaizmi.github.io/' rel='self' type='application/rss+xml'/>
+<title>
+emaizmi.github.io
+</title>
+<link>
+http://emaizmi.github.io/
+</link>
+<description>
+emaizmi's blog
+</description>
+<lastBuildDate>
+Mon, 23 Jul 2018 20:21:23 +0900
+</lastBuildDate>
+<generator>
+clj-rss
+</generator>
+</channel>
+</rss>
