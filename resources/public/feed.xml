@@ -12,7 +12,7 @@ http://emaizmi.github.io/
 emaizmi's blog
 </description>
 <lastBuildDate>
-Fri, 06 Jul 2018 12:01:33 +0900
+Mon, 23 Jul 2018 20:21:23 +0900
 </lastBuildDate>
 <generator>
 clj-rss
@@ -86,7 +86,7 @@ AtomでAsciiDocのライブプレビュー環境を整える
 &lt;p&gt;これでAsciiDocのライブプレビューまではできるが，プレビューウィンドウで右クリックしたときにでてくる &quot;Export As PDF&quot;は実行できない。PDF化のためには以下のようにする。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
-&lt;p&gt;まず，&lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;File&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Preferences&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Packages&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;asciidoc-preview&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;menuitem&quot;&gt;Export As PDF [experimental&lt;/b&gt;&lt;/span&gt; ]をクリックし &quot;Enable PDF export using Asciidoctor PDF.&quot;
+&lt;p&gt;まず，&lt;span class=&quot;menuseq&quot;&gt;&lt;b class=&quot;menu&quot;&gt;File&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Preferences&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;Packages&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;submenu&quot;&gt;asciidoc-preview&lt;/b&gt;&amp;#160;&lt;b class=&quot;caret&quot;&gt;&amp;#8250;&lt;/b&gt; &lt;b class=&quot;menuitem&quot;&gt;Export As PDF (experimental)&lt;/b&gt;&lt;/span&gt;をクリックし &quot;Enable PDF export using Asciidoctor PDF.&quot;
 のチェックボックスにチェックを入れてAsciidoctor PDFを使ったPDF出力を有効にする。&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;paragraph&quot;&gt;
